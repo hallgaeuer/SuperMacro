@@ -507,6 +507,17 @@ function FindBuff( obuff, unit, item)
 	tooltip:Hide();
 end
 
+function SpellReady(spell)
+    local i,a=0
+    while a~=spell do 
+        i=i+1 
+        a=GetSpellName(i,"spell")
+    end 
+    if GetSpellCooldown(i,"spell") == 0 then 
+        return true
+    end
+end
+
 function CancelBuff(...)
 	for j=1, getn(arg) do
    	local buff = strlower(arg[j]);
