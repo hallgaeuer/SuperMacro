@@ -558,9 +558,9 @@ end
 
 function SM_Channel(spell)
 	local cf = CastingBarFrame;
-	local sp = SM_FindSpell(spell);
+	local sp, book = SM_FindSpell(spell);
 	if ( not sp ) then return; end
-	local cd = GetSpellCooldown(sp);
+	local cd = GetSpellCooldown(sp, book);
 	if ( not cf.channeling and cd<=1.5 ) then
 		cast(spell);
 	end
